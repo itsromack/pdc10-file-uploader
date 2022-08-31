@@ -1,5 +1,6 @@
 <?php
-$message = $_GET['error'] ?? null;
+$success = $_GET['success'] ?? null;
+$error = $_GET['error'] ?? null;
 ?>
 <!doctype html>
 <html lang="en">
@@ -16,9 +17,15 @@ $message = $_GET['error'] ?? null;
 <body>
 <div class="container-sm">
 
-  <?php if (!is_null($message)): ?>
+  <?php if (!is_null($success)): ?>
+  <div class="alert alert-success" role="alert">
+    Your file was successfully uploaded
+  </div>
+  <?php endif ?>
+
+  <?php if (!is_null($error)): ?>
   <div class="alert alert-danger" role="alert">
-    A simple danger alert—check it out!
+    Unable to upload your file
   </div>
   <?php endif ?>
 
@@ -28,11 +35,10 @@ $message = $_GET['error'] ?? null;
       <label for="input_file" class="form-label">Upload your file</label>
       <input name="input_file" class="form-control" type="file" id="input_file">
     </div>
-    <input type="submit" value="Upload" class="btn btn-secondary btn-lg" />
+    <input type="submit" value="Upload the file" class="btn btn-secondary btn-lg" />
   </form>
 
 </div>
-
 
 <!-- Optional JavaScript; choose one of the two! -->
 
