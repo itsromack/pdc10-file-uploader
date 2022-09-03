@@ -42,12 +42,8 @@ class File
 
 	public function save()
 	{
+		global $pdo;
 		try {
-			$dsn = "mysql:host=localhost;dbname=my_files";
-			$user = "root";
-			$passwd = "secret123";
-
-			$pdo = new PDO($dsn, $user, $passwd);
 
 			$sql = "INSERT INTO files SET label=:label, path=:path, type=:type";
 			$statement = $pdo->prepare($sql);

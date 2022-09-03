@@ -2,6 +2,12 @@
 
 include "File.php";
 
+$dsn = "mysql:host=localhost;dbname=my_files";
+$user = "root";
+$passwd = "secret123";
+
+$pdo = new PDO($dsn, $user, $passwd);
+
 $result = File::handleUpload($_FILES['input_file']);
 
 if ($result !== FALSE) {
